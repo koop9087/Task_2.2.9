@@ -1,37 +1,34 @@
 public class Calculate {
     public static int[] calculateSum(int[][] array) {
-        int count = 0;
         int[] mas = new int[array.length];
-        int k = 0;
-        for(int j = 0; j < array.length; j++) {
+        for (int j = 0; j < array.length; j++) {
+            int sum = 0;
             for (int i = 0; i < array[j].length; i++) {
-                count = count + array[i][j];
+                sum = sum + array[i][j];
             }
-            mas[k] = count;
-            count = 0;
-            k++;
+            mas[j] = sum;
         }
         return mas;
     }
 
-    public static int findMaxVlaueOfArray(int[] mas) {
+    public static int findMaxValueOfArray(int[] mas) {
         int maxValue = mas[0];
-        for(int i = 0, k = 0; i < mas.length && k < mas.length; i++) {
-            if(mas[k] > maxValue) {
+        for (int i = 0, k = 0; i < mas.length && k < mas.length; i++, k++) {
+            if (mas[k] > maxValue) {
                 maxValue = mas[i];
             }
-            k++;
         }
         return maxValue;
     }
 
-    public static int findNumOfElemOfArray(int[] mas, int maxValue) {
-        int searchedElem = 0;
-        for(int i = 0; i < mas.length; i++) {
-            if(mas[i] == maxValue) {
-                searchedElem = i + 1;
+    public static int findIndexOfElementOfArray(int[] mas, int maxValue) {
+        int searchedElemIndex = 0;
+        for (int i = 0; i < mas.length; i++) {
+            if (mas[i] == maxValue) {
+                searchedElemIndex = i + 1;
+                break;
             }
         }
-        return searchedElem;
+        return searchedElemIndex;
     }
 }
